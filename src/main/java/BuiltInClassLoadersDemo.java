@@ -1,8 +1,9 @@
 import java.sql.Date;
+import java.util.stream.Stream;
 
 /*
-* Code source => https://medium.com/javarevisited/java-virtual-machine-internals-class-loader-eea706eb37d9
-* */
+ * Code source => https://medium.com/javarevisited/java-virtual-machine-internals-class-loader-eea706eb37d9
+ * */
 public class BuiltInClassLoadersDemo {
 
     public static void main(String[] args) {
@@ -19,6 +20,12 @@ public class BuiltInClassLoadersDemo {
         // java.lang classes are loaded by bootstrap classloader
         ClassLoader bootstrapClassLoder = args.getClass().getClassLoader();
         printClassLoaderDetails(bootstrapClassLoder);
+
+        // who loads classloaders?
+        Stream.of(
+                applicationClassLoader.getClass().getClassLoader(),
+                platformClassLoder.getClass().getClassLoader()
+        ).forEach(BuiltInClassLoadersDemo::printClassLoaderDetails);
     }
 
     private static void printClassLoaderDetails(ClassLoader classLoader) {
