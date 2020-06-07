@@ -1,4 +1,4 @@
-import jdk.internal.loader.ClassLoaders;
+// import jdk.internal.loader.ClassLoaders;
 
 import java.util.Arrays;
 
@@ -7,10 +7,13 @@ public class ClassNotFoundDemo {
     public static void main(String[] args) {
         String fullQualifiedClassName = "I'm not here";
 
-        loadClass(ClassLoader.getSystemClassLoader(), fullQualifiedClassName);
-        loadClass(ClassLoader.getPlatformClassLoader(), fullQualifiedClassName);
-        loadClass(ClassLoaders.appClassLoader(), fullQualifiedClassName);
-        loadClass(ClassLoaders.platformClassLoader(), fullQualifiedClassName);
+        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+        ClassLoader platformClassLoader = ClassLoader.getPlatformClassLoader();
+        loadClass(systemClassLoader, fullQualifiedClassName);
+        loadClass(platformClassLoader, fullQualifiedClassName);
+//        loadClass(ClassLoaders.appClassLoader(), fullQualifiedClassName);
+//        loadClass(ClassLoaders.platformClassLoader(), fullQualifiedClassName);
+
     }
 
     private static void loadClass(ClassLoader classLoader, String fullQualifiedClassName) {
