@@ -1,3 +1,5 @@
+package com.gmail.rwawrzkowicz.classloaders;
+
 import static java.util.Objects.isNull;
 
 public class Java9ModulesToClassLoaderDemo {

@@ -6,11 +6,13 @@ group 'com.gmail.rwawrzkowicz'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
